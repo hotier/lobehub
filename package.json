@@ -44,7 +44,7 @@
     "build:spa:copy": "tsx scripts/copySpaBuild.mts && tsx scripts/generateSpaTemplates.mts",
     "build:spa:mobile": "cross-env NODE_OPTIONS=--max-old-space-size=8192 MOBILE=true vite build",
     "build:spa:raw": "rm -rf public/_spa && vite build",
-    "build:vercel": "cross-env-shell NODE_OPTIONS=--max-old-space-size=8192 \"bun run build:raw && bun run db:migrate\"",
+    "build:vercel": "cross-env-shell NODE_OPTIONS=--max-old-space-size=6500 \"bun run build:raw && bun run db:migrate\"",
     "build-migrate-db": "bun run db:migrate",
     "build-sitemap": "tsx ./scripts/buildSitemapIndex/index.ts",
     "clean:node_modules": "bash -lc 'set -e; echo \"Removing all node_modules...\"; rm -rf node_modules; pnpm -r exec rm -rf node_modules; rm -rf apps/desktop/node_modules; echo \"All node_modules removed.\"'",
@@ -60,7 +60,7 @@
     "desktop:package:app:platform": "tsx scripts/electronWorkflow/buildElectron.ts",
     "desktop:package:local": "npm run desktop:build:all && npm run package:local --prefix=./apps/desktop",
     "desktop:package:local:reuse": "npm run package:local:reuse --prefix=./apps/desktop",
-    "dev": "tsx scripts/devStartupSequence.mts",
+    "dev": "tsx scripts/devStartupSequence.mts"，
     "dev:bun": "bun --bun next dev -p 3010",
     "dev:desktop": "cd apps/desktop && pnpm run dev",
     "dev:docker": "docker compose -f docker-compose/dev/docker-compose.yml up -d --wait postgresql redis rustfs searxng",
